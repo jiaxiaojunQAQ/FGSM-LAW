@@ -38,17 +38,17 @@ def get_args():
     parser.add_argument('--normal_std', default=1, type=float, help='normal_std')
     parser.add_argument('--out_dir', default='train_fgsm_RS_output', type=str, help='Output directory')
     parser.add_argument('--seed', default=0, type=int, help='Random seed')
-    parser.add_argument('--lamda', default=10, type=float, help='Label Smoothing')
+    parser.add_argument('--lamda', default=42, type=float, help='Label Smoothing')
 
     parser.add_argument('--early-stop', action='store_true', help='Early stop if overfitting occurs')
 
-    parser.add_argument('--factor', default=1, type=float)
-    parser.add_argument('--length', type=int, default=16,
+    parser.add_argument('--factor', default=0.5, type=float)
+    parser.add_argument('--length', type=int, default=4,
                         help='length of the holes')
     parser.add_argument('--n_holes', type=int, default=1,
                         help='number of holes to cut out from image')
     parser.add_argument('--c_num', default=0.125, type=float)
-    parser.add_argument('--EMA_value', default=0.9, type=float)
+    parser.add_argument('--EMA_value', default=0.55, type=float)
     return parser.parse_args()
 args = get_args()
 def get_loaders_cifar100_cutout(dir_, batch_size):
